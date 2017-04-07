@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         try {
-            long minTime = 0; //실시간
+            long minTime = 0; //실시간으로 변경
             float minDistance = 0;
             manager.requestLocationUpdates(
                     LocationManager.GPS_PROVIDER,
