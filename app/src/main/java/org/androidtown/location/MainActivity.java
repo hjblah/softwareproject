@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
     SupportMapFragment mapFragment;
     GoogleMap map;
-
+    LatLng curPosition; //현재위치를 알려주는 전역변수 추가
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "GoogleMap is ready.");
 
                 map = googleMap;//구글맵 로딩
+                LatLng startPosition = new LatLng(36.3779780,128.1451680); // 시작위치 위경도(학교)
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17));
             }
         });
 
@@ -49,7 +51,8 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() { //버튼을 누르면
             @Override
             public void onClick(View v) {
-                requestMyLocation(); //위치찾기 함수 실행
+                requestMyLocation(); //위치요청 객체 실행 (마크표시)
+                map.moveCamera(CameraUpdateFactory.newLatLngZoom(curPosition, 17)); //버튼을 눌렀을때만 카메라가 움직이도록 설정
             }
         });
 
@@ -60,7 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         try {
-            long minTime = 0; //실시간으로 변경
+            long minTime = 0; //10000에서 실시간으로 변경
             float minDistance = 0;
             manager.requestLocationUpdates(
                     LocationManager.GPS_PROVIDER,
@@ -118,23 +121,20 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-
     private void showCurrentLocation(Location location) {
-        /*LatLng curPoint = new LatLng(location.getLatitude(), location.getLongitude());
+
+        /*
         MarkerOptions optFirst = new MarkerOptions(); //위치에 마크
         optFirst.position(curPoint);// 위도,경도
         optFirst.title("Current Position");// 제목
         optFirst.snippet("Snippet");//작은설명
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPoint, 15)); // 카메라 높이 15 축척*/
-
+        //currentPosition 위치로 카메라 중심을 옮기고 화면 줌을 조정
+        curPosition = new LatLng(location.getLatitude(), location.getLongitude());
+        /*map.moveCamera(CameraUpdateFactory.newLatLngZoom( curPosition, 17));*/
+        /*map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);*/
         //기존 마커 지우기
         map.clear();
-        LatLng curPosition = new LatLng(location.getLatitude(), location.getLongitude());
-
-        //currentPosition 위치로 카메라 중심을 옮기고 화면 줌을 조정한다. 줌범위는 2~21, 숫자클수록 확대
-        map.moveCamera(CameraUpdateFactory.newLatLngZoom( curPosition, 17));
-        map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
-
         //마커 추가
         map.addMarker(new MarkerOptions()
                 .position(curPosition)
