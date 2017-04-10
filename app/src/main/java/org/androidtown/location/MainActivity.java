@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     SupportMapFragment mapFragment;
     GoogleMap map;
     LatLng curPosition; //현재위치를 알려주는 전역변수 추가
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 map = googleMap;//구글맵 로딩
                 LatLng startPosition = new LatLng(36.3779780,128.1451680); // 시작위치 위경도(학교)
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17));
+                requestMyLocation(); //위치요청 객체 실행 (GPS를 통해 실시간 위치정보를 받아옴)
             }
         });
 
@@ -51,8 +53,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() { //버튼을 누르면
             @Override
             public void onClick(View v) {
-                requestMyLocation(); //위치요청 객체 실행 (마크표시)
-                map.moveCamera(CameraUpdateFactory.newLatLngZoom(curPosition, 17)); //버튼을 눌렀을때만 카메라가 움직이도록 설정
+                map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPosition, 17)); //버튼을 눌렀을때만 카메라가 움직이도록 설정
             }
         });
 
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                     new LocationListener() {
                         @Override
                         public void onLocationChanged(Location location) {
-                            showCurrentLocation(location);
+                            markCurrentLocation(location);
                         }
 
                         @Override
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
 
             Location lastLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (lastLocation != null) {
-                showCurrentLocation(lastLocation);
+                markCurrentLocation(lastLocation);
             }
 
             manager.requestLocationUpdates(
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     new LocationListener() {
                         @Override
                         public void onLocationChanged(Location location) {
-                            showCurrentLocation(location);
+                            markCurrentLocation(location);
                         }
                         @Override
                         public void onStatusChanged(String provider, int status, Bundle extras) {
@@ -121,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    private void showCurrentLocation(Location location) {
+    private void markCurrentLocation(Location location) {
 
         /*
         MarkerOptions optFirst = new MarkerOptions(); //위치에 마크
@@ -130,9 +131,11 @@ public class MainActivity extends AppCompatActivity {
         optFirst.snippet("Snippet");//작은설명
         map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPoint, 15)); // 카메라 높이 15 축척*/
         //currentPosition 위치로 카메라 중심을 옮기고 화면 줌을 조정
-        curPosition = new LatLng(location.getLatitude(), location.getLongitude());
-        /*map.moveCamera(CameraUpdateFactory.newLatLngZoom( curPosition, 17));*/
+        // /*map.moveCamera(CameraUpdateFactory.newLatLngZoom( curPosition, 17));*/
         /*map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);*/
+
+        curPosition = new LatLng(location.getLatitude(), location.getLongitude());
+
         //기존 마커 지우기
         map.clear();
         //마커 추가
