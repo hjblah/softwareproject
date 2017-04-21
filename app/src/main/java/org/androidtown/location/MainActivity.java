@@ -21,15 +21,15 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener; //마커클릭리스너
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
     SupportMapFragment mapFragment;
     GoogleMap map;
-
-
-    LatLng curPosition; //현재위치를 알려주는 전역변수 추가
+    /*Marker selectedMarker;*/
+    /*String Position; //현재위치를 알려주는 전역변수 추가*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,12 +46,15 @@ public class MainActivity extends AppCompatActivity {
                 LatLng startPosition = new LatLng(36.3779780,128.1451680); // 시작위치 위경도(학교)
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17));
                 map.setMyLocationEnabled(true);//현재위치를 보여주는 google에서 제공하는 api
-                markBulidingPosition();
-                map.setOnMarkerClickListener(new OnMarkerClickListener() {
+                bulidingMarkerItems();//호관마커그리기
+                //markBulidingPosition();
+                map.setOnMarkerClickListener(new OnMarkerClickListener() { //마크클릭 이벤트
                     @Override
                     public boolean onMarkerClick(Marker marker) {
-
-                        Toast.makeText(MainActivity.this, "Oh my god!!", Toast.LENGTH_SHORT).show();
+                        for(int i=1; i<=10; i++) {
+                            if (marker.getTitle().equals(i+"호관"))
+                                Toast.makeText(MainActivity.this, marker.getTitle(), Toast.LENGTH_SHORT).show();
+                        }
                         return false;
                     }
                 }); // 마커 클릭이벤트
@@ -158,9 +161,71 @@ public class MainActivity extends AppCompatActivity {
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
                 .title("현재위치"));
     }*/
+   public class MarkerItem {
+       double lat;
+       double lon;
+       String num;
+       public MarkerItem(double lat, double lon, String num) {
+           this.lat = lat; this.lon = lon;
+           this.num = num;
+       }
+       public double getLat() {
+           return lat;
+       }
+       public void setLat(double lat) {
+           this.lat = lat;
+       } public double getLon() {
+           return lon;
+       } public void setLon(double lon) {
+           this.lon = lon;
+       } public String getNum() {
+           return num;
+       } public void setNum(String num) {
+           this.num = num;
+       }
+   }
 
 
-    private void markBulidingPosition() { //각호관 마크
+   private Marker addMarker(MarkerItem markerItem) {
+
+       LatLng position = new LatLng(markerItem.getLat(), markerItem.getLon());
+       String num = markerItem.getNum();
+
+       /*tv_marker.setText(formatted);
+
+       if (isSelectedMarker) {
+           tv_marker.setBackgroundResource(R.drawable.ic_marker_phone_blue);
+           tv_marker.setTextColor(Color.WHITE);
+       } else {
+           tv_marker.setBackgroundResource(R.drawable.ic_marker_phone);
+           tv_marker.setTextColor(Color.BLACK);
+       }*/
+
+       MarkerOptions markerOptions = new MarkerOptions();
+       markerOptions.title(num);
+       markerOptions.position(position);
+       markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
+
+       return map.addMarker(markerOptions); //클릭시 마커 옵션이 보이게해줌
+   }
+
+    private void bulidingMarkerItems() { ArrayList<MarkerItem> bulidingList = new ArrayList();
+        bulidingList.add(new MarkerItem(36.376764,128.1454148,"1호관"));
+        bulidingList.add(new MarkerItem(36.377887,128.1461390,"2호관"));
+        bulidingList.add(new MarkerItem(36.379204,128.1459733,"3호관"));
+        bulidingList.add(new MarkerItem(36.378552,128.1468471,"4호관"));
+        bulidingList.add(new MarkerItem(36.379049,128.1467612,"5호관"));
+        bulidingList.add(new MarkerItem(36.379714,128.1478127,"6호관"));
+        bulidingList.add(new MarkerItem(36.379256,128.1450714,"7호관"));
+        bulidingList.add(new MarkerItem(36.380318,128.1457581,"8호관"));
+        bulidingList.add(new MarkerItem(36.380785,128.1448515,"9호관"));
+        bulidingList.add(new MarkerItem(36.379485,128.1437679,"10호관"));
+        for (MarkerItem markerItem : bulidingList) {
+            addMarker(markerItem);
+        }
+    }
+
+   /*private void markBulidingPosition() { //각호관 마크
         LatLng bulid1 = new LatLng(36.3767643,128.1454148);
         map.addMarker(new MarkerOptions()
                 .position(bulid1)
@@ -185,5 +250,5 @@ public class MainActivity extends AppCompatActivity {
                 .snippet("보조")
                 .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE))
                 .title("4호관"));
-    }
+    }*/
 }
