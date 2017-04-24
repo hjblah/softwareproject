@@ -1,13 +1,17 @@
 package org.androidtown.location;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -22,6 +26,7 @@ import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener; //마커클릭리스너
 import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
@@ -52,8 +57,160 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public boolean onMarkerClick(Marker marker) {
                         for(int i=1; i<=10; i++) {
-                            if (marker.getTitle().equals(i+"호관"))
-                                Toast.makeText(MainActivity.this, marker.getTitle(), Toast.LENGTH_SHORT).show();
+                            if (marker.getTitle().equals(i+"호관")) {
+                                Context mContext = getApplicationContext();
+                                LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+                                if (i == 1) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding1, (ViewGroup) findViewById(R.id.buliding1));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 2) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding2, (ViewGroup) findViewById(R.id.buliding2));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 3) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding3, (ViewGroup) findViewById(R.id.buliding3));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 4) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding4, (ViewGroup) findViewById(R.id.buliding4));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 5) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding5, (ViewGroup) findViewById(R.id.buliding5));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 6) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding6, (ViewGroup) findViewById(R.id.buliding6));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 7) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding7, (ViewGroup) findViewById(R.id.buliding7));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 8) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding8, (ViewGroup) findViewById(R.id.buliding8));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 9) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding9, (ViewGroup) findViewById(R.id.buliding9));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                                if (i == 10) {
+                                    //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                                    View layout = inflater.inflate(R.layout.buliding10, (ViewGroup) findViewById(R.id.buliding10));
+                                    AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                                    aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
+                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    //닫기버튼
+                                    aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                        public void onClick(DialogInterface dialog, int which) {
+                                        }
+                                    });
+                                    //팝업창 생성
+                                    AlertDialog ad = aDialog.create();
+                                    ad.show();//보여줌!
+                                }
+                            }
                         }
                         return false;
                     }
