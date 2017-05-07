@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding1, (ViewGroup) findViewById(R.id.buliding1));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding2, (ViewGroup) findViewById(R.id.buliding2));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding3, (ViewGroup) findViewById(R.id.buliding3));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding4, (ViewGroup) findViewById(R.id.buliding4));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding5, (ViewGroup) findViewById(R.id.buliding5));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding6, (ViewGroup) findViewById(R.id.buliding6));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -155,7 +155,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding7, (ViewGroup) findViewById(R.id.buliding7));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -170,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding8, (ViewGroup) findViewById(R.id.buliding8));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding9, (ViewGroup) findViewById(R.id.buliding9));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -200,7 +200,7 @@ public class MainActivity extends AppCompatActivity {
                                     View layout = inflater.inflate(R.layout.buliding10, (ViewGroup) findViewById(R.id.buliding10));
                                     AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                                     aDialog.setTitle(i + "호관 설명"); //타이틀바 제목
-                                    aDialog.setView(layout); //buliding1.xml 파일을 뷰로 셋팅
+                                    aDialog.setView(layout);
                                     //닫기버튼
                                     aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                         public void onClick(DialogInterface dialog, int which) {
@@ -225,13 +225,76 @@ public class MainActivity extends AppCompatActivity {
         }
 
         Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() { //버튼을 누르면
-            @Override
+        Button button2 = (Button) findViewById(R.id.button2);
+        Button button3 = (Button) findViewById(R.id.button3);
+        Button button4 = (Button) findViewById(R.id.button4);
+        final Context mContext = getApplicationContext();
+        final LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
+
+        button.setOnClickListener(new View.OnClickListener() { //검색 버튼을 누르면
             public void onClick(View v) {
-                /*map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPosition, 17)); //버튼을 눌렀을때만 카메라가 움직이도록 설정*/
+                View layout = inflater.inflate(R.layout.searchpage, (ViewGroup) findViewById(R.id.searchpage));
+                AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                aDialog.setTitle("검색"); //타이틀바 제목
+                aDialog.setView(layout); //파일을 뷰로 셋팅
+                //닫기버튼
+                aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                //팝업창 생성
+                AlertDialog ad = aDialog.create();
+                ad.show();//보여줌!
             }
         });
-
+        button2.setOnClickListener(new View.OnClickListener(){ //식단표 버튼을 누르면
+            public void onClick(View v){
+                View layout = inflater.inflate(R.layout.todayfood, (ViewGroup) findViewById(R.id.todayfood));
+                AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                aDialog.setTitle("식단표"); //타이틀바 제목
+                aDialog.setView(layout); //파일을 뷰로 셋팅
+                //닫기버튼
+                aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                //팝업창 생성
+                AlertDialog ad = aDialog.create();
+                ad.show();//보여줌!
+            }
+        });
+        button3.setOnClickListener(new View.OnClickListener(){ //버스시간표 버튼을 누르면
+            public void onClick(View v){
+                View layout = inflater.inflate(R.layout.bustable, (ViewGroup) findViewById(R.id.bustable));
+                AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                aDialog.setTitle("버스시간표"); //타이틀바 제목
+                aDialog.setView(layout); //파일을 뷰로 셋팅
+                //닫기버튼
+                aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                //팝업창 생성
+                AlertDialog ad = aDialog.create();
+                ad.show();//보여줌!
+            }
+        });
+        button4.setOnClickListener(new View.OnClickListener(){ //시설이용버튼을 누르면
+            public void onClick(View v){
+                View layout = inflater.inflate(R.layout.usefacility, (ViewGroup) findViewById(R.id.usefacility));
+                AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                aDialog.setTitle("시설이용정보"); //타이틀바 제목
+                aDialog.setView(layout); //파일을 뷰로 셋팅
+                //닫기버튼
+                aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+                //팝업창 생성
+                AlertDialog ad = aDialog.create();
+                ad.show();//보여줌!
+            }
+        });
     }
 
 
@@ -378,7 +441,7 @@ public class MainActivity extends AppCompatActivity {
         bulidingList.add(new MarkerItem(36.380785,128.1448515,"9호관"));
         bulidingList.add(new MarkerItem(36.379485,128.1437679,"10호관"));
         for (MarkerItem markerItem : bulidingList) {
-            addMarker(markerItem);
+            addMarker(markerItem).showInfoWindow();
         }
     }
 
