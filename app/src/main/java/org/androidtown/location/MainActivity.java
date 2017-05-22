@@ -33,9 +33,6 @@ public class MainActivity extends AppCompatActivity {
 
     SupportMapFragment mapFragment;
     GoogleMap map;
-    /*Marker selectedMarker;*/
-    /*String Position; //현재위치를 알려주는 전역변수 추가*/
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,22 +41,21 @@ public class MainActivity extends AppCompatActivity {
         mapFragment.getMapAsync(new OnMapReadyCallback() {
             @Override
             public void onMapReady(GoogleMap googleMap) {
+
                 Log.d(TAG, "GoogleMap is ready.");
                 map = googleMap;//구글맵 로딩
                 /*map.setMapType(GoogleMap.MAP_TYPE_NORMAL);*/
-                //requestMyLocation(); //위치요청 객체 실행 (GPS를 통해 실시간 위치정보를 받아옴)
                 LatLng startPosition = new LatLng(36.3779780,128.1451680); // 시작위치 위경도(학교)
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(startPosition, 17));
                 map.setMyLocationEnabled(true);//현재위치를 보여주는 google에서 제공하는 api
                 bulidingMarkerItems();//호관마커그리기
-                //markBulidingPosition();
                 map.setOnMarkerClickListener(new OnMarkerClickListener() { //마크클릭 이벤트
                     @Override
                     public boolean onMarkerClick(Marker marker) {
+                        Context mContext = getApplicationContext();
+                        LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
                         for(int i=1; i<=10; i++) {
                             if (marker.getTitle().equals(i+"호관")) {
-                                Context mContext = getApplicationContext();
-                                LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(LAYOUT_INFLATER_SERVICE);
                                 if (i == 1) {
                                     //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
                                     View layout = inflater.inflate(R.layout.buliding1, (ViewGroup) findViewById(R.id.buliding1));
@@ -212,6 +208,199 @@ public class MainActivity extends AppCompatActivity {
                                 }
                             }
                         }
+                        if (marker.getTitle().equals("대운동장")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.playground, (ViewGroup) findViewById(R.id.playground));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("대운동장 설명"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("도서관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.book, (ViewGroup) findViewById(R.id.book));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("도서관 설명"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("복지회관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.studentstore, (ViewGroup) findViewById(R.id.studentstore));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("복지회관 설명"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("학생화관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.studentfacility, (ViewGroup) findViewById(R.id.studentfacility));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("학생회관 설명"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("창조관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.domchang, (ViewGroup) findViewById(R.id.domchang));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("기숙사"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("경애관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.domkyung, (ViewGroup) findViewById(R.id.domkyung));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("기숙사"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("근면관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.domgun, (ViewGroup) findViewById(R.id.domgun));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("기숙사"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("자주관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.domja, (ViewGroup) findViewById(R.id.domja));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("기숙사"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }if (marker.getTitle().equals("청운관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.domchung, (ViewGroup) findViewById(R.id.domchung));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("기숙사"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("노악관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.domno, (ViewGroup) findViewById(R.id.domno));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("기숙사"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }if (marker.getTitle().equals("체육관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.gym, (ViewGroup) findViewById(R.id.gym));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("체육관"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("테니스장")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.tennis, (ViewGroup) findViewById(R.id.tennis));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("테니스장"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
+                        if (marker.getTitle().equals("풋살장")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.football, (ViewGroup) findViewById(R.id.football));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("풋살장"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }if (marker.getTitle().equals("산학연종합지원센터")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                            View layout = inflater.inflate(R.layout.supply, (ViewGroup) findViewById(R.id.supply));
+                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
+                            aDialog.setTitle("산학연종합지원센터"); //타이틀바 제목
+                            aDialog.setView(layout);
+                            //닫기버튼
+                            aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            //팝업창 생성
+                            AlertDialog ad = aDialog.create();
+                            ad.show();//보여줌!
+                        }
                         return false;
                     }
                 }); // 마커 클릭이벤트
@@ -296,91 +485,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
-
-   /* private void requestMyLocation() {//위치요청 객체
-        LocationManager manager =
-                (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-
-        try {
-            long minTime = 0; //10000에서 실시간으로 변경
-            float minDistance = 0;
-            manager.requestLocationUpdates(
-                    LocationManager.GPS_PROVIDER,
-                    minTime,
-                    minDistance,
-                    new LocationListener() {
-                        @Override
-                        public void onLocationChanged(Location location) {
-                            markCurrentLocation(location);
-                        }
-
-                        @Override
-                        public void onStatusChanged(String provider, int status, Bundle extras) {
-
-                        }
-
-                        @Override
-                        public void onProviderEnabled(String provider) {
-
-                        }
-
-                        @Override
-                        public void onProviderDisabled(String provider) {
-
-                        }
-                    } //로케이션 리스너
-            );
-
-            Location lastLocation = manager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-            if (lastLocation != null) {
-                markCurrentLocation(lastLocation);
-            }
-
-            manager.requestLocationUpdates(
-                    LocationManager.NETWORK_PROVIDER,
-                    minTime,
-                    minDistance,
-                    new LocationListener() {
-                        @Override
-                        public void onLocationChanged(Location location) {
-                            markCurrentLocation(location);
-                        }
-                        @Override
-                        public void onStatusChanged(String provider, int status, Bundle extras) {
-                        }
-                        @Override
-                        public void onProviderEnabled(String provider) {
-                        }
-                        @Override
-                        public void onProviderDisabled(String provider) {
-                        }
-                    }
-            );
-        } catch(SecurityException e) {
-            e.printStackTrace();
-        }
-    }*/
-    /*private void markCurrentLocation(Location location) {
-
-        MarkerOptions optFirst = new MarkerOptions(); //위치에 마크
-        optFirst.position(curPoint);// 위도,경도
-        optFirst.title("Current Position");// 제목
-        optFirst.snippet("Snippet");//작은설명
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(curPoint, 15)); // 카메라 높이 15 축척
-        //currentPosition 위치로 카메라 중심을 옮기고 화면 줌을 조정
-        // /*map.moveCamera(CameraUpdateFactory.newLatLngZoom( curPosition, 17));
-        /*map.animateCamera(CameraUpdateFactory.zoomTo(17), 2000, null);
-        curPosition = new LatLng(location.getLatitude(), location.getLongitude());
-        //기존 마커 지우기
-        map.clear();
-        //마커 추가
-        map.addMarker(new MarkerOptions()
-                .position(curPosition)
-                .snippet("보조")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN))
-                .title("현재위치"));
-    }*/
    public class MarkerItem {
        double lat;
        double lon;
@@ -405,31 +509,28 @@ public class MainActivity extends AppCompatActivity {
        }
    }
 
-
    private Marker addMarker(MarkerItem markerItem) {
-
        LatLng position = new LatLng(markerItem.getLat(), markerItem.getLon());
        String num = markerItem.getNum();
-
-       /*tv_marker.setText(formatted);
-
-       if (isSelectedMarker) {
-           tv_marker.setBackgroundResource(R.drawable.ic_marker_phone_blue);
-           tv_marker.setTextColor(Color.WHITE);
-       } else {
-           tv_marker.setBackgroundResource(R.drawable.ic_marker_phone);
-           tv_marker.setTextColor(Color.BLACK);
-       }*/
-
        MarkerOptions markerOptions = new MarkerOptions();
        markerOptions.title(num);
        markerOptions.position(position);
        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-
+       //map.addMarker(markerOptions).showInfoWindow();
        return map.addMarker(markerOptions); //클릭시 마커 옵션이 보이게해줌
    }
+    private Marker blueMarker(MarkerItem markerItem) {
+        LatLng position = new LatLng(markerItem.getLat(), markerItem.getLon());
+        String num = markerItem.getNum();
+        MarkerOptions markerOptions = new MarkerOptions();
+        markerOptions.title(num);
+        markerOptions.position(position);
+        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_CYAN));
+        //map.addMarker(markerOptions).showInfoWindow();
+        return map.addMarker(markerOptions); //클릭시 마커 옵션이 보이게해줌
+    }
 
-    private void bulidingMarkerItems() { ArrayList<MarkerItem> bulidingList = new ArrayList();
+    private void bulidingMarkerItems() { ArrayList<MarkerItem> bulidingList = new ArrayList(); ArrayList<MarkerItem> facilityList = new ArrayList<>();
         bulidingList.add(new MarkerItem(36.376764,128.1454148,"1호관"));
         bulidingList.add(new MarkerItem(36.377887,128.1461390,"2호관"));
         bulidingList.add(new MarkerItem(36.379204,128.1459733,"3호관"));
@@ -440,35 +541,35 @@ public class MainActivity extends AppCompatActivity {
         bulidingList.add(new MarkerItem(36.380318,128.1457581,"8호관"));
         bulidingList.add(new MarkerItem(36.380785,128.1448515,"9호관"));
         bulidingList.add(new MarkerItem(36.379485,128.1437679,"10호관"));
+
+        facilityList.add(new MarkerItem(36.376323,128.1461175,"대운동장"));
+        facilityList.add(new MarkerItem(36.379204,128.1436338,"도서관"));
+        facilityList.add(new MarkerItem(36.378673,128.1447603,"복지회관"));
+        facilityList.add(new MarkerItem(36.378008,128.1438162,"학생회관"));
+        facilityList.add(new MarkerItem(36.378671,128.1479611,"풋살장"));
+        facilityList.add(new MarkerItem(36.378861,128.1481711,"테니스장"));
+        facilityList.add(new MarkerItem(36.375361,128.1447311,"체육관"));
+        facilityList.add(new MarkerItem(36.378431,128.1427808,"산학연종합지원센터"));
+
+        facilityList.add(new MarkerItem(36.377494,128.1435909,"창조관"));
+        facilityList.add(new MarkerItem(36.376971,128.1437035,"자주관"));
+        facilityList.add(new MarkerItem(36.377066,128.1431724,"근면관"));
+        facilityList.add(new MarkerItem(36.377451,128.1427969,"경애관"));
+        facilityList.add(new MarkerItem(36.377751,128.1423211,"노악관"));
+        facilityList.add(new MarkerItem(36.378051,128.1422611,"청운관"));
+
+        facilityList.add(new MarkerItem(36.380161,128.1469511,"파워플랜트"));
+        facilityList.add(new MarkerItem(36.380711,128.1464011,"파일럿플랜트"));
+        facilityList.add(new MarkerItem(36.379591,128.1490011,"기계실습실"));
+        facilityList.add(new MarkerItem(36.379901,128.1490111,"자동차실습동"));
+        facilityList.add(new MarkerItem(36.380121,128.1491311,"섬유공장"));
+
         for (MarkerItem markerItem : bulidingList) {
-            addMarker(markerItem).showInfoWindow();
+            addMarker(markerItem);
+            //addMarker(markerItem).showInfoWindow(); //마커옵션이 항상보이게
+        }
+        for (MarkerItem markerItem : facilityList){
+            blueMarker(markerItem);
         }
     }
-
-   /*private void markBulidingPosition() { //각호관 마크
-        LatLng bulid1 = new LatLng(36.3767643,128.1454148);
-        map.addMarker(new MarkerOptions()
-                .position(bulid1)
-                .snippet("보조")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE))
-                .title("1호관"));
-        LatLng bulid2 = new LatLng(36.3778873,128.1461390);
-        map.addMarker(new MarkerOptions()
-                .position(bulid2)
-                .snippet("보조")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE))
-                .title("2호관"));
-        LatLng bulid9 = new LatLng(36.3807853,128.1448515);//잘못됨
-        map.addMarker(new MarkerOptions()
-                .position(bulid9)
-                .snippet("보조")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE))
-                .title("3호관"));
-        LatLng bulid4 = new LatLng(36.378552,128.1468471);
-        map.addMarker(new MarkerOptions()
-                .position(bulid4)
-                .snippet("보조")
-                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ROSE))
-                .title("4호관"));
-    }*/
 }
