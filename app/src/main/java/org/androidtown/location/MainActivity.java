@@ -1,5 +1,6 @@
 package org.androidtown.location;
 
+import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.location.Location;
@@ -33,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     SupportMapFragment mapFragment;
     GoogleMap map;
+    int count = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -250,14 +252,20 @@ public class MainActivity extends AppCompatActivity {
                             AlertDialog ad = aDialog.create();
                             ad.show();//보여줌!
                         }
-                        if (marker.getTitle().equals("학생화관")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
+                        if (marker.getTitle().equals("학생회관,학생식당")){ //R.layout.buliding1는 xml 파일명  R.id.buliding1은 보여줄 레이아웃 아이디
                             View layout = inflater.inflate(R.layout.studentfacility, (ViewGroup) findViewById(R.id.studentfacility));
                             AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
-                            aDialog.setTitle("학생회관 설명"); //타이틀바 제목
+                            aDialog.setTitle("학생회관,학생식당"); //타이틀바 제목
                             aDialog.setView(layout);
                             //닫기버튼
                             aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
+                                }
+                            });
+                            aDialog.setPositiveButton("학생식당 메뉴", new DialogInterface.OnClickListener(){
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+
                                 }
                             });
                             //팝업창 생성
@@ -470,7 +478,7 @@ public class MainActivity extends AppCompatActivity {
         });
         button4.setOnClickListener(new View.OnClickListener(){ //시설이용버튼을 누르면
             public void onClick(View v){
-                View layout = inflater.inflate(R.layout.usefacility, (ViewGroup) findViewById(R.id.usefacility));
+                /*View layout = inflater.inflate(R.layout.usefacility, (ViewGroup) findViewById(R.id.usefacility));
                 AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
                 aDialog.setTitle("시설이용정보"); //타이틀바 제목
                 aDialog.setView(layout); //파일을 뷰로 셋팅
@@ -481,7 +489,16 @@ public class MainActivity extends AppCompatActivity {
                 });
                 //팝업창 생성
                 AlertDialog ad = aDialog.create();
-                ad.show();//보여줌!
+                ad.show();//보여줌!*/
+                if(count == 0) {
+                    count++;
+                    map.clear();
+                }
+                else if (count == 1)
+                {
+                    count--;
+                    bulidingMarkerItems();
+                }
             }
         });
     }
@@ -508,7 +525,10 @@ public class MainActivity extends AppCompatActivity {
            this.num = num;
        }
    }
-
+   public void clearMark(){
+       map.clear();
+       MarkerOptions markerOptions = new MarkerOptions();
+   }
    private Marker addMarker(MarkerItem markerItem) {
        LatLng position = new LatLng(markerItem.getLat(), markerItem.getLon());
        String num = markerItem.getNum();
@@ -545,7 +565,7 @@ public class MainActivity extends AppCompatActivity {
         facilityList.add(new MarkerItem(36.376323,128.1461175,"대운동장"));
         facilityList.add(new MarkerItem(36.379204,128.1436338,"도서관"));
         facilityList.add(new MarkerItem(36.378673,128.1447603,"복지회관"));
-        facilityList.add(new MarkerItem(36.378008,128.1438162,"학생회관"));
+        facilityList.add(new MarkerItem(36.378008,128.1438162,"학생회관,학생식당"));
         facilityList.add(new MarkerItem(36.378671,128.1479611,"풋살장"));
         facilityList.add(new MarkerItem(36.378861,128.1481711,"테니스장"));
         facilityList.add(new MarkerItem(36.375361,128.1447311,"체육관"));

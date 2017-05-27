@@ -3,7 +3,7 @@
     android:id="@+id/studentfacility"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191A19"
+    android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".MainActivity" >
     <LinearLayout
@@ -13,10 +13,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#B4B4B4"
+            android:textColor="#191A19"
             android:layout_gravity="center"
             android:textSize="15sp"
-            android:text="학생회관"
+            android:text="1층 학생식당\n2층 학생회관,동아리"
             android:textStyle="bold"
             android:typeface="normal" />
     </LinearLayout>

@@ -30,7 +30,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="시설이용정보"
+            android:text="핀 제거/보이기"
             android:id="@+id/button4"
             android:layout_weight="1" />
     </LinearLayout>
