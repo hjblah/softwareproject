@@ -3,7 +3,7 @@
     android:id="@+id/studentstore"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#191A19"
+    android:background="#ffffff"
     android:orientation="vertical"
     tools:context=".MainActivity" >
     <LinearLayout
@@ -13,11 +13,84 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#B4B4B4"
-            android:layout_gravity="center"
+            android:textColor="#191A19"
+            android:layout_gravity="left"
             android:textSize="15sp"
-            android:text="복지회관,학백"
+            android:text="\n        패스트푸드,분식\n\n위치: 복합관 1층\n전화: 054-530-1191\n운영시간: 학기 08:30~19:00\n                방학 09:00~18:00\n"
             android:textStyle="bold"
             android:typeface="normal" />
+
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/hakback1"/>
+                <ImageView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/hakback3"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#191A19"
+            android:layout_gravity="left"
+            android:textSize="15sp"
+            android:text="\n        카페\n\n위치: 복합관 1층\n전화: 054-530-1193\n운영시간: 학기 08:30~19:00\n                 방학 09:00~18:00\n"
+            android:textStyle="bold"
+            android:typeface="normal" />
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/hakbackcafe"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#191A19"
+            android:layout_gravity="left"
+            android:textSize="15sp"
+            android:text="\n        매점\n\n위치: 복지회관 1층\n전화: 054-530-1196\n운영시간: 평일 09:00 ~ 22:00\n                  토요일 09:00 ~ 13:00(학기중에만 운영)\n                  방학 09:00 ~ 18:00\n"
+            android:textStyle="bold"
+            android:typeface="normal" />
+
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/store"/>
+                <ImageView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/store2"/>
+            </LinearLayout>
+
+        </HorizontalScrollView>
+
     </LinearLayout>
 </ScrollView>

@@ -262,12 +262,6 @@ public class MainActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialog, int which) {
                                 }
                             });
-                            aDialog.setPositiveButton("학생식당 메뉴", new DialogInterface.OnClickListener(){
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-
-                                }
-                            });
                             //팝업창 생성
                             AlertDialog ad = aDialog.create();
                             ad.show();//보여줌!

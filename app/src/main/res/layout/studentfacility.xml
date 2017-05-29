@@ -14,10 +14,44 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="#191A19"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
             android:textSize="15sp"
-            android:text="1층 학생식당\n2층 학생회관,동아리"
+            android:text="\n        1층 학생식당\n\n위치 학생회관 1층\n전화 054-530-1528\n운영시간 11:30~13:30\n"
             android:textStyle="bold"
             android:typeface="normal" />
+
+        <HorizontalScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/haksic1"/>
+                <ImageView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/haksic2"/>
+                <ImageView
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:src="@drawable/haksic3"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#191A19"
+            android:layout_gravity="left"
+            android:textSize="15sp"
+            android:text="\n        2층 학생회관, 동아리실\n\n\n\n\n\n\n\n\n"
+            android:textStyle="bold"
+            android:typeface="normal" />
+
     </LinearLayout>
 </ScrollView>
