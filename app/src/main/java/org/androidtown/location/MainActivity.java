@@ -3,9 +3,11 @@ package org.androidtown.location;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
     SupportMapFragment mapFragment;
     GoogleMap map;
     int count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -440,18 +443,7 @@ public class MainActivity extends AppCompatActivity {
         });
         button2.setOnClickListener(new View.OnClickListener(){ //식단표 버튼을 누르면
             public void onClick(View v){
-                View layout = inflater.inflate(R.layout.todayfood, (ViewGroup) findViewById(R.id.todayfood));
-                AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
-                aDialog.setTitle("식단표"); //타이틀바 제목
-                aDialog.setView(layout); //파일을 뷰로 셋팅
-                //닫기버튼
-                aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                //팝업창 생성
-                AlertDialog ad = aDialog.create();
-                ad.show();//보여줌!
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse("http://coop.knu.ac.kr/sub03/sub01_01.html?shop_sqno=49")));
             }
         });
         button3.setOnClickListener(new View.OnClickListener(){ //버스시간표 버튼을 누르면
@@ -472,18 +464,6 @@ public class MainActivity extends AppCompatActivity {
         });
         button4.setOnClickListener(new View.OnClickListener(){ //시설이용버튼을 누르면
             public void onClick(View v){
-                /*View layout = inflater.inflate(R.layout.usefacility, (ViewGroup) findViewById(R.id.usefacility));
-                AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
-                aDialog.setTitle("시설이용정보"); //타이틀바 제목
-                aDialog.setView(layout); //파일을 뷰로 셋팅
-                //닫기버튼
-                aDialog.setNegativeButton("닫기", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                    }
-                });
-                //팝업창 생성
-                AlertDialog ad = aDialog.create();
-                ad.show();//보여줌!*/
                 if(count == 0) {
                     count++;
                     map.clear();
@@ -518,10 +498,6 @@ public class MainActivity extends AppCompatActivity {
        } public void setNum(String num) {
            this.num = num;
        }
-   }
-   public void clearMark(){
-       map.clear();
-       MarkerOptions markerOptions = new MarkerOptions();
    }
    private Marker addMarker(MarkerItem markerItem) {
        LatLng position = new LatLng(markerItem.getLat(), markerItem.getLon());
